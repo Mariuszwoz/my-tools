@@ -1,0 +1,48 @@
+# systems
+FROM ubuntu:latest
+FROM alpine:latest
+
+#--------------------------------------------
+
+# Bash into image
+docker exec -it “container-id-or-name” /bin/bash
+
+
+# Prune all dockers
+docker system prune -a
+
+# Inside docker-compose.yml on services: -> ubuntu: docker does not stop
+    command: tail -F anything
+
+#-------------------------------------------
+
+# Alpine basic tools
+RUN apk update -y
+
+# midnight commander
+RUN apk add mc -y 
+RUN echo 'alias mc=". /usr/lib/mc/mc-wrapper.sh"' >> ~/.bashrc
+
+# nano
+RUN apk add nano -y
+
+#----------------------------
+
+# Basic Ubuntu tools
+
+# update apt-get and apt
+RUN apt-get update -y
+RUN apt update -y
+
+# midnight commander
+# check if needed RUN sudo add-apt-repository universe
+RUN apt install mc -y
+RUN echo 'alias mc=". /usr/lib/mc/mc-wrapper.sh"' >> ~/.bashrc
+
+# nano
+RUN sudo apt-get install nano -y
+
+#wget 
+RUN apt-get install -y wget 
+
+#-----------------------------
