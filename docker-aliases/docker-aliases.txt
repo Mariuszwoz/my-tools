@@ -1,0 +1,13 @@
+alias docker-show-images="docker ps -a"
+alias dockerpsa="docker ps -a"
+
+alias docker-prune-all="docker system prune -a"
+
+alias docker-stop-all="docker stop $(docker ps -a -q)"
+alias docker-remove-all="docker rm $(docker ps -a -q)"
+alias docker-clean="docker-stop-all && docker-remove-all"
+
+alias docker-bash="sh bash-scripts/docker-bash.sh"
+
+alias docker-up="docker-compose up -d"
+alias docker-down="docker-compose down"
